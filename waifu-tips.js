@@ -165,6 +165,11 @@ function loadWidget(config) {
 			modelId = 1; // 模型 ID
 			modelTexturesId = 53; // 材质 ID
 		}
+		//modelId为0的bug
+		if (modelId === 0) {
+			modelId = 1;
+			modelTexturesId = 1;
+		}
 		loadModel(modelId, modelTexturesId);
 		fetch(waifuPath)
 			.then(response => response.json())
@@ -230,7 +235,7 @@ function loadWidget(config) {
 			showMessage("我的新衣服好看嘛？", 4000, 10);
 		} else {
 			// 可选 "rand"(随机), "switch"(顺序)
-			fetch(`${apiPath}rand_textures/?id=${modelId}-${modelTexturesId}`)
+			fetch(`${apiPath}switch_textures/?id=${modelId}-${modelTexturesId}`)
 				.then(response => response.json())
 				.then(result => {
 					if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) showMessage("我还没有其他衣服呢！", 4000, 10);
