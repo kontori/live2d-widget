@@ -2,9 +2,6 @@
  * Live2D Widget
  * https://github.com/stevenjoezhang/live2d-widget
  */
-live2d_settings['waifuDraggable'] = 'axis-x';
-live2d_settings['waifuDraggableRevert'] = false;
-
 function loadWidget(config) {
 	let { waifuPath, apiPath, cdnPath } = config;
 	let useCDN = false, modelList;
